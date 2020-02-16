@@ -1,0 +1,12 @@
+\section{Membuat Chart}
+Pada aplikasi ini kita akan membuat chart, yaitu chart tentang jurusan yang terbanyak terdata dari tabel jurusan dan mahasiswa.
+\begin{itemize}
+    \item[1] pertama siapkan terlebih dahulu query View CHART\_JURUSAN seperti berikut :
+        \begin{lstlisting}
+CREATE OR REPLACE FORCE EDITIONABLE VIEW  "CHART_JURUSAN" ("JURUSAN", "JUMLAH") AS 
+  SELECT nama_jurusan, COUNT(nama_jurusan) AS jumlah FROM data_mhs GROUP BY nama_jurusan;        
+        \end{lstlisting}
+    \item[2] 
+\end{itemize}
+
+\section{Membuat Tanggal}

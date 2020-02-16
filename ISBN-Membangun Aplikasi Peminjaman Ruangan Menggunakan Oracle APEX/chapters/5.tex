@@ -1,0 +1,64 @@
+\section{Pengertian Trigger}
+Trigger adalah blok PL/SQL yang disimpan dalam database dan akan diaktivasi ketika kita melakukan statement-statement SQL (DELETE, UPDATE, dan INSERT) pada sebuah tabel. Aktivasi trigger didasarkan pada event yang terjadi di dalam tabel tersebut sehingga trigger dapat membantu dalam menjaga integritas dan konsistensi data.
+\par Implementasi trigger yang sering ditemui dalam dunia nyata adalah untuk mengeset dan mengubah nilai kolom dalam suatu tabel sehingga validasi nilai dari tabel tersebut akan terjaga. Adanya trigger dalam database akan meringankan kita dalam pembuatan aplikasi karena di dalam aplikasi yang kita buat, kita tidak perlu lagi untuk melakukan validasi data.
+\par Dalam trigger Oracle telah menyediakan statement CREATE TRIGGER untuk membuat
+sebuah trigger yang selanjutnya akan diaktivasi berdasarkan event tertentu. Secara
+umum, event trigger terbagi menjadi dua, yaitu BEFORE (sebelum) dan AFTER
+(setelah). Event tersebut menandakan kapan trigger akan diaktivasi, apakah sebelum
+ataukah sesudah proses yang dilakukan di dalam tabel bersangkutan\cite{mudafiq2003trigger}.
+\begin{table}[]
+    \begin{center}
+\begin{tabular}{ |c|c| } 
+ \hline
+ Nama Event & Keterangan  \\ \hline 
+ BEFORE INSERT & Diaktifkan sekali sebelum Statement INSERT  \\ \hline
+ AFTER INSERT & Diaktifkan sekali setelah Statement INSERT  \\ \hline
+ BEFORE UPDATE & Diaktifkan sekali sebelum Statement UPDATE \\ \hline
+ AFTER UPDATE & Diaktifkan sekali setelah Statement UPDATE \\ \hline
+ BEFORE DELETE & Diaktifkan sekali sebelum Statement DELETE \\ \hline
+ AFTER DELETE & Diaktifkan sekali setelah Statement DELETE \\
+ \hline
+\end{tabular}
+\caption{Tabel Pengertian Trigger}
+    \label{tabel_kebutuhan_sistem}
+\end{center}
+\end{table}
+\section{Pengertian Sequence}
+Sequence iaalah salah satu object yang ada di aplikasi Oracle Apex pada database yang digunakan untuk melakukan penomoran otomatis. Namun pada database MySQL yang biasa lebih dikenal dengan nama Auto Increment, Sequence biasanya digunakan sebagai Primary Key untuk membuat ID yang secara otomatis terinput oleh database.
+\par pada Oracle Apex database, anda dapat membuat sequence hingga mencapai kelipatan yang tak terbatas, namun anda juga bisa mengaturnya dengan sesuai kebutuhan anda.
+
+\section{Membuat Query Sequence dan Trigger}
+Dalam tahap ini yaitu kita akan membuat Query pada SQL Command, tuliskan kode kode berikut
+
+\begin{itemize}
+    \item[1] Buat Query Untuk Sequence terlebih dahulu yang nanti akan di integrasikan pada Trigger JABATAN\_TRG
+    \begin{lstlisting}
+CREATE SEQUENCE   "JABATAN_SEQ"  
+ MINVALUE 1 
+ MAXVALUE 9999999999999999999999999999 
+ NOCYCLE
+ CACHE 20
+ NOORDER;
+    \end{lstlisting}
+    \item[2] Buat Query TRIGGER yang nanti akan terhubung pada tabel JABATAN
+    \begin{lstlisting}
+/*QUERY PERTAMA*/
+
+CREATE OR REPLACE EDITIONABLE TRIGGER  "JABATAN_TRG" 
+BEFORE INSERT ON JABATAN_ORMAWA 
+FOR EACH ROW
+
+BEGIN
+  SELECT JABATAN_SEQ.NEXTVAL
+  INTO   :new.KODE_JABATAN
+  FROM   dual;
+END;
+
+/
+
+/*QUERY KEDUA*/
+
+ALTER TRIGGER  "JABATAN_TRG" ENABLE
+/
+    \end{lstlisting}
+ \end{itemize}

@@ -1,0 +1,53 @@
+\section{Pengertian View dalam Database}
+Di dalam Oracle SQL, View dapat didefenisikan sebagai tabel virtual yang tidak dapat di ubah isi datanya. Tabel ini bisa berasal dari tabel lain, atau bisa gabungan dari beberapa tabel.
+\par Tujuan dari pembuatan VIEW sebuah query ialah untuk kenyamanan developer dalam mempermudah penulisan query sql, untuk keamanan (menyembunyikan beberapa kolom yang bersifat rahasia atau tidak boleh diketahui user lain), atau dalam beberapa case bisa digunakan untuk mempercepat suatu proses dalam menampilkan data (jika kita akan menjalankan query tersebut secara berulang).
+
+\subsection{Contoh Query View}
+Berikut adalah contoh dari query dari View, dalam beberapa kasus banyak orang mengartikan view sebagai query yang sangat simpel, contohnya :
+\begin{itemize}
+    \item Query yang pertama dibutuhkan 
+\begin{lstlisting}
+CREATE VIEW ... AS ... ;
+\end{lstlisting}
+    \item Atau anda dapat menambahkan REPLACE
+\begin{lstlisting}
+CREATE OR REPLACE VIEW ... AS ... ;
+\end{lstlisting}
+    \item Sebagai Contoh Membuat View Dari Tabel MAHASISWA
+\begin{lstlisting}
+CREATE OR REPLACE VIEW TBL_MHS AS
+SELECT * FROM MAHASISWA;
+\end{lstlisting}
+    \item Dan untuk menghapusnya cukup seperti berikut
+\begin{lstlisting}
+DROP VIEW TBL_MHS;
+\end{lstlisting}
+\end{itemize}
+
+\section{Pengertian Join Dalam Database}
+Join adalah sebutan untuk menggabungkan 1 tabel antara 2 atau tabel lainnya yang berelasi antar primary key atau foreign key, biasanya Query join untuk menampilkan suatu data yang penting dalam beberapa tabel lalu menggabungkannya agar seakan akan data dari satu tabel dengan tabel lainnya tersambung, dapat dicontohkan sebagai berikut :
+
+\begin{itemize}
+    \item Menggabungkan 1 tabel dengan 2 tabel lainnya yaitu dari tabel MAHASISWA dan yang akan bergabung pada tabel tersebut yaitu tabel JURUSAN dan JABATAN\_ORMAWA.
+    \begin{lstlisting}
+SELECT M.NPM,M.NAMA,M.KELAS,M.KODE_JURUSAN,J.NAMA_JURUSAN,M.KODE_ORMAWA,M.KODE_JABATAN,O.JABATAN,M.NO_TELP_MHS
+FROM MAHASISWA M
+INNER JOIN JURUSAN J
+    on M.KODE_JURUSAN = J.KODE_JURUSAN
+INNER JOIN JABATAN_ORMAWA O
+    on M.KODE_JABATAN = O.KODE_JABATAN
+    \end{lstlisting}
+\end{itemize}
+
+\section{Menggabungkan Query View dengan Join}
+Dalam penggabungan query view dengan join anda dapat melakukan cara berikut yaitu, membuat nama View yaitu DATA\_MHS, lalu membberikan select dari join tabel MAHASISWA dan yang akan bergabung pada tabel tersebut yaitu tabel JURUSAN dan JABATAN\_ORMAWA.
+\par Berikut adalah contohnya :
+    \begin{lstlisting}
+CREATE OR REPLACE VIEW DATA_MHS AS 
+  SELECT M.NPM,M.NAMA,M.KELAS,M.KODE_JURUSAN,J.NAMA_JURUSAN,M.KODE_ORMAWA,M.KODE_JABATAN,O.JABATAN,M.NO_TELP_MHS
+FROM MAHASISWA M
+INNER JOIN JURUSAN J
+    on M.KODE_JURUSAN = J.KODE_JURUSAN
+INNER JOIN JABATAN_ORMAWA O
+    on M.KODE_JABATAN = O.KODE_JABATAN
+    \end{lstlisting}

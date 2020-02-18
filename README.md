@@ -1,9 +1,20 @@
-Login On Oracle Apex
+# Aplikasi Peminjaman Ruangan Menggunakan Oracle Apex
 
-info aplikasi : https://apex.oracle.com/pls/apex/f?p=15061:LOGIN_DESKTOP:705704016833XXX:::::
-info mail : rizaluardiaps@gmail.com
-info pw : qwerty12345
+Info Login Oracle Apex
 
-000000000000000000000000000000000000000000000000000000000000000000000000
-Info Login Oracle Apeex
-118410266
+```
+Info Login =  https://bit.ly/2RN22WP
+ID Login =  rizalichsam@gmail.com
+Password = qwerty54321
+```
+## My Folder
+
+Berikut adalah Folder yang kami gunakan :
+
+* [ISBN](https://github.com/rizaluardi/proyek2/tree/master/ISBN-Membangun%20Aplikasi%20Peminjaman%20Ruangan%20Menggunakan%20Oracle%20APEX) : Berisi ISBN
+
+## Authors 
+
+* **Rizaluardi Achmad Pratama** - *1184102* - [rizaluardi](https://github.com/rizaluardi)
+* **M Ichsam Kurniawan Nasution** - *1184110* - [ichsam](https://gitlab.com/ichsamnasution)
+

@@ -402,7 +402,7 @@ This version is dated \currversion^^J^^J}
 \vss}\global\everypar={\hskip-\parindent\everypar={}}\vskip1in}
 
 % used
-%\introauthor{Rizaluardi Achmad P.}{D4 Teknik Informatika\\
+%\introauthor{Rizaluardi A.P.}{D4 Teknik Informatika\\
 % Politeknik Pos Indonesia}
 
 \def\l@ichapter#1#2{%
@@ -1843,7 +1843,7 @@ D R A F T\hfill\today, \realtime\hfill D R A F T\global\titlefalse\vss}}
 \vskip6.5pt
 
 {\locfont Penulis:}\\
-Rizaluardi Achmad P
+Rizaluardi Achmad Pratama
 \vskip6.5pt
 
 ISBN : -
